@@ -19,35 +19,35 @@ function playGame(playerSelection, computerSelection){
 
     if (playerSelection == "rock"){
         if(computerSelection == "Rock"){
-            return "Tie";
+            return "Tie!";
         }
-        else if (playerSelection == "Paper"){
-            return "Lose";
+        else if (computerSelection == "Paper"){
+            return "You lose! Paper beats Rock";
         }
         else{
-            return "Win";
+            return "You win! Rock beats Scissors";
         }
     }
     if (playerSelection == "paper"){
         if(computerSelection == "Rock"){
-            return "Win";
+            return "You win! Paper beats Rock";
         }
-        else if (playerSelection == "Paper"){
-            return "Tie";
+        else if (computerSelection == "Paper"){
+            return "Tie!";
         }
         else{
-            return "Lose";
+            return "You lose! Scissors beats Paper" ;
         }
     }
     if (playerSelection == "scissors"){
         if(computerSelection == "Rock"){
-            return "Lose";
+            return "You lose! Rock beats Scissors";
         }
-        else if (playerSelection == "Paper"){
-            return "Win";
+        else if (computerSelection == "Paper"){
+            return "You win! Scissors beats Paper";
         }
         else{
-            return "Tie";
+            return "Tie!";
         }
     }
     return playerSelection;
