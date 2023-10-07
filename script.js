@@ -11,7 +11,7 @@ function getComputerChoice(){
     }
 }
 
-function playGame(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
 
     console.log(playerSelection);
@@ -53,10 +53,13 @@ function playGame(playerSelection, computerSelection){
     return playerSelection;
 }
 
-//Test Cases
-console.log(playGame("ROCk", getComputerChoice()));
-console.log(playGame("rocK", getComputerChoice()));
-console.log(playGame("PapEr", getComputerChoice()));
-console.log(playGame("paper", getComputerChoice()));
-console.log(playGame("ScissoRs", getComputerChoice()));
-console.log(playGame("scissors", getComputerChoice()));
+function game(){
+    let numofGames = 5;
+    let i = 0;
+    while (i < numofGames){
+        alert(playRound(prompt("Make your choice!"), getComputerChoice())); //alert() will make it pop up on the screen.
+        i++;
+        console.log("Games Played: " + i);
+    }
+}
+game();
