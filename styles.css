@@ -45,13 +45,12 @@ button{
     box-sizing: border-box;
     background-color: #eed9c4;
     display:flex;
+    padding: 5px;
 }
 
 #cpu-choice{
     font-size: 15px;
     font-weight: 700;
-    padding-top: 5px;
-    padding-bottom: 5px;
     border-right: 5px solid #d9b99b;
     margin: 0;
     display:flex;
@@ -59,10 +58,26 @@ button{
     justify-content: space-between;
     align-items: center;
 }
-#cpu{
+#cpu, #user-score, #cpu-score{
     border-bottom: 5px solid #d9b99b;
 }
 #cpu-choice img{
     height: 100px;
     width: 100px;
+}
+
+#text-container{
+    display:flex;
+    flex-direction: column;
+    padding: 0px 15px;
+    flex-grow: 1; 
+    /*So that the flex-items grow to take up all the available space
+    Allows our header to not waste space. */
+}
+#header{
+    display:flex;
+    font-size: 15px;
+    font-weight: 700;
+    gap: 10px;
+    margin-bottom: 15px;
 }
