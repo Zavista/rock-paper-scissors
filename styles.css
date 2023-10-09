@@ -6,7 +6,7 @@ body {
     align-items: center;
     padding: 20px;
     gap: 20px;
-    
+    /*Makes the entire page into a column flexbox display*/
 }
 
 #title{
@@ -16,16 +16,23 @@ body {
 }
 
 #image-container{
-    padding: 40px;
+    padding: 25px;
     background-color: #eed9c4;
-    width: 500px;
+    width: 525px;
     height: 150px;
     display:flex;
     justify-content: space-between;
     align-items: center;
+    border: 5px solid #d9b99b;
+    /*Flex-container to store our image buttons */
 }
 
 img {
     height: 150px;
     width: 150px;
+}
+
+button{
+    background-color: #eed9c4;
+    border: none; /*Removed the button border */
 }
