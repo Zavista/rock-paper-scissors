@@ -66,7 +66,9 @@ function game(){
 //add events to each time we click the button
 const rockBtn = document.querySelector("#rock");
 rockBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
+
 const paperBtn = document.querySelector("#paper");
-rockBtn.addEventListener('click', () => playRound("paper", getComputerChoice()));
+paperBtn.addEventListener('click', () => playRound("paper", getComputerChoice()));
+
 const scissorsBtn = document.querySelector("#scissors");
-rockBtn.addEventListener('click', () => playRound("scissors", getComputerChoice()));
+scissorsBtn.addEventListener('click', () => playRound("scissors", getComputerChoice()));
