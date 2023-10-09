@@ -62,4 +62,7 @@ function game(){
         console.log("Games Played: " + i);
     }
 }
-game();
+
+
+const rockBtn = document.querySelector("#rock");
+rockBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
