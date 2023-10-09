@@ -1,3 +1,14 @@
+let winCount = 0;
+let tieCount = 0;
+let lossCount = 0;
+//Counters to store our W/T/L 
+
+function updateCounters(){ //function to update our HTML counters
+    document.querySelector("#win").textContent = `Win: ${winCount}`;
+    document.querySelector("#tie").textContent = `Tie: ${tieCount}`;
+    document.querySelector("#loss").textContent = `Loss: ${lossCount}`;
+}
+
 function getComputerChoice(){
     let rand = Math.floor(Math.random() * 3); //Returns a random integer from 0 to 2 (inclusive)
     if (rand == 0){
@@ -19,34 +30,52 @@ function playRound(playerSelection, computerSelection){
 
     if (playerSelection == "rock"){
         if(computerSelection == "Rock"){
+            tieCount++;
+            updateCounters();
             return "Tie!";
         }
         else if (computerSelection == "Paper"){
+            lossCount++;
+            updateCounters();
             return "You lose! Paper beats Rock";
         }
         else{
+            winCount++;
+            updateCounters();
             return "You win! Rock beats Scissors";
         }
     }
     if (playerSelection == "paper"){
         if(computerSelection == "Rock"){
+            winCount++;
+            updateCounters();
             return "You win! Paper beats Rock";
         }
         else if (computerSelection == "Paper"){
+            tieCount++;
+            updateCounters();
             return "Tie!";
         }
         else{
+            lossCount++;
+            updateCounters();
             return "You lose! Scissors beats Paper" ;
         }
     }
     if (playerSelection == "scissors"){
         if(computerSelection == "Rock"){
+            lossCount++;
+            updateCounters();
             return "You lose! Rock beats Scissors";
         }
         else if (computerSelection == "Paper"){
+            winCount++;
+            updateCounters();
             return "You win! Scissors beats Paper";
         }
         else{
+            tieCount++;
+            updateCounters();
             return "Tie!";
         }
     }
