@@ -4,8 +4,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    margin: 0; /*makes the margin 0 b/c the pre-set margin isn't 0*/
     gap: 25px;
+    min-height: 100vh; /*makes sure the document uses at min 100% of the window space*/
     /*Makes the entire page into a column flexbox display*/
 }
 
@@ -18,6 +19,7 @@ body {
     box-sizing: border-box;
     text-align: center;
     padding: 15px;
+    margin-top: 25px;
 
 }
 
@@ -86,4 +88,21 @@ button{
     font-weight: 700;
     gap: 10px;
     margin-bottom: 15px;
+}
+
+#footer{
+    background-color: #e4d5b7;
+    width: 100%;
+    gap: 10px;
+    padding: 15px;
+    margin-top: auto;
+    align-self: flex-end; /*pushes it to the bottom using align-self since its a flex item for body*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#footer img{
+    width: 25px;
+    height: 25px;
 }
