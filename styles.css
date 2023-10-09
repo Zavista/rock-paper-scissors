@@ -12,6 +12,12 @@ body {
 #title{
     font-size: 60px;
     font-weight: 700;
+    border: 5px solid #d9b99b;
+    background-color: #eed9c4;
+    width: 580px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 15px;
 
 }
 
