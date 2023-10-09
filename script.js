@@ -35,6 +35,13 @@ function playRound(playerSelection, computerSelection){
         If given lose, it returns "Paper"
     */
 
+    const imgSources ={
+        Rock: "images/rock (1).png",
+        Paper: "images/paper (1).png",
+        Scissors: "images/scissors (1).png"
+    }
+    document.querySelector("#cpu-image").src = imgSources[computerSelection];
+    
     if (playerSelection === computerSelection){
         document.querySelector("#choice").textContent = `Tie! ${playerSelection} | ${computerSelection}`;
     }

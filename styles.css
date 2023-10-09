@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    gap: 20px;
+    gap: 25px;
     /*Makes the entire page into a column flexbox display*/
 }
 
