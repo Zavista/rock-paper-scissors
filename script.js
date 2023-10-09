@@ -1,12 +1,10 @@
-let winCount = 0;
-let tieCount = 0;
-let lossCount = 0;
-//Counters to store our W/T/L 
+let userScore = 0;
+let cpuScore = 0;
+//Counters to store score
 
 function updateCounters(){ //function to update our HTML counters
-    document.querySelector("#win").textContent = `Win: ${winCount}`;
-    document.querySelector("#tie").textContent = `Tie: ${tieCount}`;
-    document.querySelector("#loss").textContent = `Loss: ${lossCount}`;
+    document.querySelector("#user-score").textContent = `Your Score: ${userScore}`;
+    document.querySelector("#cpu-score").textContent = `CPU Score: ${cpuScore}`;
 }
 
 function getComputerChoice(){
@@ -23,81 +21,45 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
-    playerSelection = playerSelection.toLowerCase();
+    const outcomes = {
+        Rock: {win: "Scissors", lose: "Paper"},
+        Paper: {win: "Rock", lose: "Scissors"},
+        Scissors: {win: "Paper", lose: "Rock"}
+    };
+    //Think of outcomes as a python dictionary that takes the user choice as a key and stores its win and lose scenario in another dictionary
+    /* 
+    For Rock: {win: "Scissors", lose: "Paper"},
+        Rock is the key to access this key-value pair.
+        Its value is aslo another dictionary
+        If given win, it returns "Scissors"
+        If given lose, it returns "Paper"
+    */
 
-    console.log(playerSelection);
-    console.log(computerSelection);
-
-    if (playerSelection == "rock"){
-        if(computerSelection == "Rock"){
-            tieCount++;
-            updateCounters();
-            return "Tie!";
-        }
-        else if (computerSelection == "Paper"){
-            lossCount++;
-            updateCounters();
-            return "You lose! Paper beats Rock";
-        }
-        else{
-            winCount++;
-            updateCounters();
-            return "You win! Rock beats Scissors";
-        }
+    if (playerSelection === computerSelection){
+        document.querySelector("#choice").textContent = `Tie! ${playerSelection} | ${computerSelection}`;
     }
-    if (playerSelection == "paper"){
-        if(computerSelection == "Rock"){
-            winCount++;
-            updateCounters();
-            return "You win! Paper beats Rock";
-        }
-        else if (computerSelection == "Paper"){
-            tieCount++;
-            updateCounters();
-            return "Tie!";
-        }
-        else{
-            lossCount++;
-            updateCounters();
-            return "You lose! Scissors beats Paper" ;
-        }
+    else if (outcomes[playerSelection].win === computerSelection){
+        //This enters playerSelection into outcomes which returns a value which is also a dictionary
+        //Then it enters win into that dictionary which returns its value, which is the value where playerSelection wins if computerSelection === that value
+        //Note outcomes[playerSelection].win and (outcomes[playerSelection])[win] are both valid
+        document.querySelector("#choice").textContent = `Win! ${playerSelection} | ${computerSelection}`;
+        userScore++;
     }
-    if (playerSelection == "scissors"){
-        if(computerSelection == "Rock"){
-            lossCount++;
-            updateCounters();
-            return "You lose! Rock beats Scissors";
-        }
-        else if (computerSelection == "Paper"){
-            winCount++;
-            updateCounters();
-            return "You win! Scissors beats Paper";
-        }
-        else{
-            tieCount++;
-            updateCounters();
-            return "Tie!";
-        }
+    else{
+        document.querySelector("#choice").textContent = `Lose! ${playerSelection} | ${computerSelection}`;
+        cpuScore++;
     }
-    return playerSelection;
+    updateCounters();
+    //update our counters
 }
 
-function game(){
-    let numofGames = 5;
-    let i = 0;
-    while (i < numofGames){
-        alert(playRound(prompt("Make your choice!"), getComputerChoice())); //alert() will make it pop up on the screen.
-        i++;
-        console.log("Games Played: " + i);
-    }
-}
 
 //add events to each time we click the button
 const rockBtn = document.querySelector("#rock");
-rockBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
+rockBtn.addEventListener('click', () => playRound("Rock", getComputerChoice()));
 
 const paperBtn = document.querySelector("#paper");
-paperBtn.addEventListener('click', () => playRound("paper", getComputerChoice()));
+paperBtn.addEventListener('click', () => playRound("Paper", getComputerChoice()));
 
 const scissorsBtn = document.querySelector("#scissors");
-scissorsBtn.addEventListener('click', () => playRound("scissors", getComputerChoice()));
+scissorsBtn.addEventListener('click', () => playRound("Scissors", getComputerChoice()));
