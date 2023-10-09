@@ -98,7 +98,8 @@ img {
     background-color: #eed9c4;
     padding: 10px;
     box-sizing: border-box;  
-    display: flex;
+    display: none; 
+    /*Have the game-end be initially hidden. It will be turned to flex once someone wins and be turned back to none if play-agaim*/
     flex-direction: column;
     justify-content: space-around;
     align-items: center;

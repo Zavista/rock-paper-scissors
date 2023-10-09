@@ -8,6 +8,9 @@ paperBtn.addEventListener('click', () => playRound("Paper", getComputerChoice())
 const scissorsBtn = document.querySelector("#scissors");
 scissorsBtn.addEventListener('click', () => playRound("Scissors", getComputerChoice()));
 
+const resetBtn = document.querySelector("#reset-button");
+resetBtn.addEventListener("click", resetGame);
+
 let userScore = 0;
 let cpuScore = 0;
 //Counters to store score
@@ -69,14 +72,25 @@ function playRound(playerSelection, computerSelection){
     }
     updateCounters();
     //update our counters
+    checkWinner();
 }
 
-function resetGame(){ /*Resets the score and starting image */
+function resetGame(){ //Resets the score and starting image 
     userScore = 0;
     cpuScore = 0;
     updateCounters();
-    document.querySelector("#cpu-image").src = "images/robot.png"
+    document.querySelector("#cpu-image").src = "images/robot.png";
+    document.querySelector("#game-end").style.display="none"; //hides the game-end
+    document.querySelector("#choice").textContent = "First to 5 Wins!";
 }
 
-const resetBtn = document.querySelector("#reset-button");
-resetBtn.addEventListener("click", resetGame);
+function checkWinner(){ //Checks for winner and display game-end
+    if (userScore == 5){
+        document.querySelector("#game-result").textContent="You Win!";
+        document.querySelector("#game-end").style.display="flex";
+    }
+    else if (cpuScore == 5){
+        document.querySelector("#game-result").textContent="You Lose!";
+        document.querySelector("#game-end").style.display="flex";
+    }
+}
