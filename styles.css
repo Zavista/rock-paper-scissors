@@ -41,7 +41,7 @@ img {
     width: 150px;
 }
 
-button{
+#image-container button{
     background-color: #eed9c4;
     border: none; /*Removed the button border */
 }
@@ -89,6 +89,34 @@ button{
     gap: 10px;
     margin-bottom: 15px;
 }
+
+
+#game-end{
+    border: 5px solid #d9b99b;
+    width: 580px;
+    height: 125px;
+    background-color: #eed9c4;
+    padding: 10px;
+    box-sizing: border-box;  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#game-end div{
+    font-size: 35px;
+    font-weight: 700;
+}
+
+#game-end button{
+    background-color: #eed9c4;
+    border-color: #d9b99b;
+    border-radius: 6px;
+    font-weight: 300;
+    padding: 5px 10px;
+}
+
 
 #footer{
     background-color: #e4d5b7;

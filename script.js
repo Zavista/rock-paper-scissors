@@ -1,3 +1,13 @@
+//add events to each time we click the button
+const rockBtn = document.querySelector("#rock");
+rockBtn.addEventListener('click', () => playRound("Rock", getComputerChoice()));
+
+const paperBtn = document.querySelector("#paper");
+paperBtn.addEventListener('click', () => playRound("Paper", getComputerChoice()));
+
+const scissorsBtn = document.querySelector("#scissors");
+scissorsBtn.addEventListener('click', () => playRound("Scissors", getComputerChoice()));
+
 let userScore = 0;
 let cpuScore = 0;
 //Counters to store score
@@ -6,6 +16,7 @@ function updateCounters(){ //function to update our HTML counters
     document.querySelector("#user-score").textContent = `Your Score: ${userScore}`;
     document.querySelector("#cpu-score").textContent = `CPU Score: ${cpuScore}`;
 }
+
 
 function getComputerChoice(){
     let rand = Math.floor(Math.random() * 3); //Returns a random integer from 0 to 2 (inclusive)
@@ -60,13 +71,12 @@ function playRound(playerSelection, computerSelection){
     //update our counters
 }
 
+function resetGame(){ /*Resets the score and starting image */
+    userScore = 0;
+    cpuScore = 0;
+    updateCounters();
+    document.querySelector("#cpu-image").src = "images/robot.png"
+}
 
-//add events to each time we click the button
-const rockBtn = document.querySelector("#rock");
-rockBtn.addEventListener('click', () => playRound("Rock", getComputerChoice()));
-
-const paperBtn = document.querySelector("#paper");
-paperBtn.addEventListener('click', () => playRound("Paper", getComputerChoice()));
-
-const scissorsBtn = document.querySelector("#scissors");
-scissorsBtn.addEventListener('click', () => playRound("Scissors", getComputerChoice()));
+const resetBtn = document.querySelector("#reset-button");
+resetBtn.addEventListener("click", resetGame);
