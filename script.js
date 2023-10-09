@@ -43,17 +43,17 @@ function playRound(playerSelection, computerSelection){
     document.querySelector("#cpu-image").src = imgSources[computerSelection];
     
     if (playerSelection === computerSelection){
-        document.querySelector("#choice").textContent = `Tie! ${playerSelection} | ${computerSelection}`;
+        document.querySelector("#choice").textContent = `It's a draw! You both chose ${computerSelection.toLowerCase()}.`;
     }
     else if (outcomes[playerSelection].win === computerSelection){
         //This enters playerSelection into outcomes which returns a value which is also a dictionary
         //Then it enters win into that dictionary which returns its value, which is the value where playerSelection wins if computerSelection === that value
         //Note outcomes[playerSelection].win and (outcomes[playerSelection])[win] are both valid
-        document.querySelector("#choice").textContent = `Win! ${playerSelection} | ${computerSelection}`;
+        document.querySelector("#choice").textContent = `Victory! ${playerSelection} beats ${computerSelection.toLowerCase()}.`;
         userScore++;
     }
     else{
-        document.querySelector("#choice").textContent = `Lose! ${playerSelection} | ${computerSelection}`;
+        document.querySelector("#choice").textContent = `Defeat! ${computerSelection} crushes ${playerSelection.toLowerCase()}.`;
         cpuScore++;
     }
     updateCounters();
